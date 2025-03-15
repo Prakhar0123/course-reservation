@@ -1,0 +1,88 @@
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 2vw;
+    background-color: #000;
+    color: white;
+    height: 8vh;
+}
+.top-bar .left {
+    font-size: 2.5vw;
+    color: white;
+}
+.top-bar .center {
+    flex: 1;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5vw;
+}
+
+.top-bar .center a {
+    text-decoration: none;
+    color: white;
+    margin: 0 1vw;
+}
+.right-icons {
+    display: flex;
+    align-items: center;
+}
+
+.right-icons a {
+    color: white;
+    text-decoration: none;
+    margin-right: 2vw;
+    font-size: 1.8vw;
+}
+
+.username {
+    margin-left: 1vw;
+    font-size: 1.5vw;
+    color: white;
+}
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 2vw;
+    background-color: #000;
+    color: white;
+    height: 8vh;
+}
+.top-bar .left {
+    font-size: 2.5vw;
+    color: white;
+}
+
+.find {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 75vh;
+    /* margin-left:1%; */
+    gap:20vh;
+}
+.find input[type="text"] {
+    height: 5vh;
+    width: 20vw;
+    padding: 1.5vh;
+    border-radius: 50px;
+    border: 2px solid #990f02;
+    font-size: 2vh;
+    outline: none;
+    margin-right: 1vw;
+}
+.find .btn-primary {
+    background-color: #990f02;
+    border: none;
+    color: white;
+    padding: 1.5vh 3vw;
+    font-size: 2vh;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.find .btn-primary:hover {
+    background-color: #60100b;
+}

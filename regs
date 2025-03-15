@@ -1,0 +1,21 @@
+<?php
+$host = 'localhost';
+$db = 'book';
+$user = 'root';
+$pass = '';
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['deleteQuery'])) {
+    $courseName = $conn->real_escape_string($_POST['deleteQuery']);
+    $query = "DELETE FROM course WHERE crs = '$courseName'";
+
+    if ($conn->query($query) === TRUE) {
+        echo "Course deleted successfully.";
+    } else {
+        echo "Error deleting course: " . $conn->error;
+    }
+}
+$conn->close();
+?>
