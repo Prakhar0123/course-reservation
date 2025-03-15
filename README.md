@@ -1,2 +1,2 @@
 This is a fully dynamic web project based on the topic-Online Course Reservation that follows an academic approach to allow students to enroll & learn online,thus reducing the traditional form-filling system that costs both energy & time.This project features both Admin & User ends providing both with suitable features & accessibilities.New updates will be included further in the project.
-**Contact: checkoutprakhar@gmail.com**
+**Contact: checkoutprakhar@gmail.com** for any complaints/issues
