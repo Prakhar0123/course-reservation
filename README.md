@@ -22,11 +22,12 @@ npm start
 ```
 ## Google Apps Script Integration:
 
-I used Google Apps Script to automate tasks in ELARN’s Google Sheets backend. Here’s the script snippet:
+I used Google Apps Script to automate tasks in ELARN’s Google Sheets' & Google Forms' backend. Here are the script snippets:
 
+**1. Auto-Delete enrollments older than 3 days** - Add this code in the Apps Script provided in Google Sheets 
 ```javascript
 function deleteOldRows() {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Form Responses 1");
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Your Sheet Name (bottom left)");
   const dateColumn = 1;
   const today = new Date();
   const data = sheet.getDataRange().getValues();
@@ -35,6 +36,32 @@ function deleteOldRows() {
     if (!isNaN(cellDate) && (today - cellDate) / (1000 * 60 * 60 * 24) > 3) {
       sheet.deleteRow(i + 1);
     }
+  }
+}
+```
+**2. Auto-Sort new Courses** - Add this code in the Apps Script provided in Google Form creation page
+```javascript
+function autoSortCheckbox() {
+  try {
+    var form = FormApp.openById("Your form ID from the URL located between d/.../edit");
+    var items = form.getItems(FormApp.ItemType.CHECKBOX);
+    items.forEach(function(item) {
+      var checkboxItem = item.asCheckboxItem();
+      var choices = checkboxItem.getChoices();
+      var choiceValues = choices.map(function(choice) {
+        return choice.getValue();
+      });
+      choiceValues.sort(function(a, b) {
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+      });
+      var newChoices = choiceValues.map(function(value) {
+        return checkboxItem.createChoice(value);
+      });
+      checkboxItem.setChoices(newChoices);
+    });
+    Logger.log("Checkbox options sorted successfully.");
+  } catch (err) {
+    Logger.log("Error: " + err.message);
   }
 }
 ```
